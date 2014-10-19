@@ -1,0 +1,40 @@
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin:0 auto; width: 950px; }
+  h1 { font-size: 20px; margin:30px 0; }
+  h2 { clear: both; margin: 0; margin-bottom: 5px; font-size: 16px; }
+  p { font-size: 15px; margin-bottom: 30px; }
+  
+  #safety{position:relative;}
+  [class^=slider] { display: block; margin-bottom: 7px; float:left; clear:both; }
+  [class^=slider] ul {list-style:none; list-style-type:none;}
+
+  .sideview{height: 435px; list-style: none outside none; margin: 0 10px; position: relative; width: 802px;}
+  .sideview li{position:absolute; top:0; left:0; display:none; color:blue;}
+  .sideview li.first{display:block;}
+  .sideview li p{color: #000000; font: 12px/1.4 Arial, Helvetica, sans-serif; margin: 30px auto 15px; text-align: center; width: 650px;}
+  
+  #slider-bullet{float:left; width:105%; list-style:none; padding:0; margin:0;}
+  #slider-bullet li{width:100px; margin: 0 48px 0 -28px; float:left; padding:0;}
+  #slider-bullet li a{color: #333333; display: block; font: bold 12px Arial, Helvetica, sans-serif; text-align: center; text-decoration: none;}
+  
+  .itemwrap .Sbullet{z-index: 99; position: absolute; top: -6px; width: 21px; height: 21px; background: transparent url('../img/red-dot2.png') no-repeat scroll; }
+  
+  .slider {width: 300px;}
+
+.slider > .dragger { width: 16px; height: 16px; }
+
+.slider > .dragger:hover {}
+
+.slider > .track, .slider > .highlight-track {background: #ccc; height: 4px;}
+
+.slider > .highlight-track {}
+
+#vid-window{z-index:500; width:152px; height:114px; position:absolute; top:90px; left:40px; background:transparent url(../img/popup_square.png) no-repeat scroll; display:block; opacity:1;}
+#vid-window img{margin:5px 3px;}
+
+.slider-volume {width: 840px;}
+
+.slider-volume > .dragger { width: 29px; height: 22px; margin: 0 auto; background: transparent url(../img/dragger.png) no-repeat scroll;}
+
+.slider-volume > .track, .slider-volume > .highlight-track {height: 7px; background: transparent url(../img/track.png) repeat-x scroll; }
+
+.slider-volume > .highlight-track { height: 7px; background:transparent url(../img/highlight.png) repeat-x scroll;}
