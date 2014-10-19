@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://jbk404.site50.net/360DegreeView/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>360 Degree View</title>    
+    <style type="text/css">
+         body
+        {            
+            background-color:#332A29;
+            font-family:arial, verdana, sans-serif;
+            font-size:80%;
+            margin:0;
+        }
+        
+        #wrapper
+        {
+            width:970px;
+           height:467px; 
+            overflow:hidden;                               
+        }
+        
+        #imageHolder
+        {
+           background-image:url(images/ol.jpg);
+          
+           background-repeat:no-repeat;
+           /*background-position:0px 376px;
+           -webkit-background-size:220px;
+           -webkit-background-origin:content-box;*/ /* Safari */
+           width:970px;
+           height:467px; 
+           cursor:pointer;    
+        }
+    </style>
+    <script type="text/javascript">
+        var imageHolder = null;
+        var distance = 0;
+        var initialX, initialY, finalX, finalY, presentX, presentY = 0;
+        var isMouseDown = false;
+        var counter = 0;
+        var noOfImages = 20;       
+        function init() {
+            console.log("init()");
+            imageHolder = document.getElementById("imageHolder");
+            imageHolder.addEventListener("mousedown", handleMouseDown, false);
+            imageHolder.addEventListener("mousemove", handleMouseMove, false);
+            imageHolder.addEventListener("mouseup", handleMouseUp, false);
+        }
+
+        function handleMouseMove(event) {
+            if (isMouseDown) {
+                presentX = event.pageX;
+                presentY = event.pageY;                                
+                distance = parseInt((presentX - initialX));
+                console.log("Move: " + distance + " Present: " + presentX);
+                //console.log(imageHolder.style.width);
+                //now check whether distance is +ve or -ve
+                if (distance <= -1) {
+                    initialX = event.pageX;
+                    moveForward();
+                }
+                else if(distance >= 1){
+                    initialX = event.pageX;
+                    moveBackward();
+                }
+            }
+        }
+
+        function moveForward() {
+            ++counter;
+            if (counter == noOfImages) {
+                counter = 0;
+            }
+
+            document.getElementById("imageHolder").style.backgroundPosition = "0px " + (-counter * 467) + "px";
+        }
+
+        function moveBackward() {
+            counter--;
+            if (counter == -1) {
+                counter = noOfImages - 1;
+            } 
+
+            document.getElementById("imageHolder").style.backgroundPosition = "0px " + (-counter * 467) + "px";
+    
+        }
+
+        function handleMouseDown(event) {
+            event.preventDefault();
+            isMouseDown = true;
+            initialX = event.pageX;
+            //initialY = event.pageY;
+            
+            console.log("Mouse Down: " + initialX);
+        }
+        function handleMouseUp(event) {
+            if (isMouseDown) {
+                isMouseDown = false;
+            }
+            finalX = event.pageX;
+            //finalY = event.pageY;
+            console.log("Mouse Up: " + finalX);
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div id="wrapper">
+        <div id="imageHolder">
+            
+        </div>
+    </div>    
+
+</body></html>

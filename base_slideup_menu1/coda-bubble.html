@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Content Show</title>
+    <style type="text/css" media="screen">
+        
+        .bubbleInfo {
+            position: relative;
+            top: 150px;
+            left: 100px;
+            width: 500px;
+        }
+        .trigger {
+            position: absolute;
+        }
+     
+        /* Bubble pop-up */
+
+        .popup {
+        	position: absolute;
+        	display: none;
+        	z-index: 50;
+        	border-collapse: collapse;
+            width:200px;
+            height:80px;
+        }
+
+    </style>
+
+    <script src="jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+(function($){
+
+    $.fn.blacktopPopup = function(btOptions){
+ 
+        var btDefaults = {
+            distance:10,
+			time:250
+        },
+ 
+        btSettings = $.extend({}, btDefaults, btOptions);	
+
+		$(this).each(function(){
+							  
+			$(this).hover(function(){
+								   
+            var info = $('.popup').css('opacity', 0);
+			
+                    info.css({
+                        top: -90,
+                        left: -33,
+                        display: 'block'
+                    }).animate({
+                        top: '-=' + btSettings.distance + 'px',
+                        opacity: 1
+                    }, btSettings.time);
+           
+            }, function() {
+					$('.popup').animate({
+                        top: '-=' + btSettings.distance + 'px',
+						opacity: 0
+                    }, btSettings.time, function(){
+					$('.popup').css('display', 'none')
+					})
+
+                return false;
+            });
+
+		});
+
+	}
+	
+	
+})(jQuery);
+
+$(function(){
+	$('a').blacktopPopup();
+});
+
+</script>
+
+</head>
+<body id="page">
+    
+    <p><small>Note that the transparency doesn't work in IE - this is the same on the Coda web site where the images were sourced.</small></p>
+
+    
+    <div class="bubbleInfo">
+        <div>
+            <a class="trigger" href="#">charger to go</a>
+        </div>
+        <div id="dpop" class="popup" style="opacity:0; background:yellow;">
+                popy here
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body></html>

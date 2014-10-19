@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Slide Up Test</title>
+  
+  <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+ 
+  <script type='text/javascript' src='jquery-1.6.min.js'></script>
+  <script type='text/javascript' src='jquery.easing.1.3.js'></script>
+  <script type='text/javascript'>
+
+
+(function($){  
+  $.fn.slideupmenu = function(options){
+
+    var opts = jQuery.extend({ slideUpSpeed: 150, slideDownSpeed: 200, ease: "easeOutQuad", stopQueue: true }, options);
+      
+    $(this).find('.top-menu-main').hover(function(){
+    $(this).addClass('hover');
+      var $o = $(this).find('ul');
+      if (opts.stopQueue) $o = $o.stop(true, true).slideDown(opts.slideUpSpeed, opts.ease);
+    
+    }, function() {
+    $(this).removeClass('hover');
+      var $o = $(this).find('ul');
+      if (opts.stopQueue) $o = $o.stop(true, true).fadeOut(300)
+    });
+  }
+
+})(jQuery);
+    
+$(document).ready(function(){
+  var opts = {};
+  $(".top-menu").slideupmenu(opts);  
+});
+
+  </script>
+</head>
+<body>
+  <div class="header"></div>
+  
+  <div class="top-menu">
+    <div class="top-menu-main">
+     
+        <ul class="palette">
+          <li class="first">Item 1yrty yr</li>
+          <li class="">Item 2 ytr </li>
+          <li class="">Item 3 y</li>
+          <li class="">Item 4</li>
+          <li class="last">Item 5</li>
+        </ul>
+        <a href="#" class="menu-item-text">Year 2 Colorizer</a>
+        
+    </div>
+  </div>
+  
+  
+  
+  
+  
+</body>
+</html>

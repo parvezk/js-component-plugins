@@ -1,0 +1,72 @@
+body {
+  margin: 0; padding: 0; background: url(images/back.jpg);
+  color: #fff;
+  font-family: tahoma, arial;
+  font-size: 12px;
+}
+
+a {color: #fff; text-decoration: none;}
+
+.header {
+  width: 950px; 
+  height: 247px;
+  margin: auto; 
+  background: url(images/waterfall.jpg) no-repeat 0 0;
+  -moz-box-shadow: 0 0 8px #777;
+  -webkit-box-shadow: 0 0 8px #777;
+  box-shadow: 0 -5px 10px #777;
+}
+/****************************/
+.top-menu {
+  margin: auto;
+  width: 800px;
+  font-family: "Arial", Georgia, Tahoma, arial;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #000;
+  height: 38px;
+  font-size: 10px;
+}
+
+.top-menu-main {
+  position:relative;
+  float:left;
+  list-style:none;
+  margin: 0;  
+}
+
+.top-menu-main a{
+	display: block;
+    height: 38px;
+    line-height: 3.8;
+    padding: 0 15px;
+    text-align: center;
+}
+
+ul.palette {
+	bottom: 38px;
+	cursor: pointer;
+	display:none;
+      min-width:100%;
+      position:absolute;
+      padding:0px;
+      margin:0px;
+      white-space:nowrap;
+  -moz-box-shadow: 0 0 8px #333;
+  -webkit-box-shadow: 0 0 8px #333;
+  box-shadow: 0 0 8px #333;
+}
+
+ul.palette > li {
+  margin: 0px;
+  padding: 10px 30px;
+  background: #333;
+  color: #fff;
+  white-space: nowrap;
+  list-style:none;
+  }
+
+ul.palette > li.hover {
+  background: #cfcfcf;
+  color: #333;
+}
